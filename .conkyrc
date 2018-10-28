@@ -1,0 +1,69 @@
+
+conky.config = {
+    own_window = true,
+    own_window_type = 'override',
+    own_window_transparent = true,
+    own_window_hints="undecorated,below,sticky,skip_taskbar,skip_pager",
+    own_window_class = 'conky',
+    double_buffer = true,
+    alignment = 'middle_right',
+    background = true,
+    border_width = 1,
+    cpu_avg_samples = 10,
+    default_color = '#FFF',
+    default_outline_color = '#333',
+    default_shade_color = '#000',
+    draw_borders = false,
+    draw_graph_borders = false,
+    draw_outline = false,
+    draw_shades = false,
+    use_xft = true,
+    font = 'Ubuntu Mono, Bold:size=18',
+    gap_x = 50,
+    gap_y = 75,
+    minimum_height = 5,
+    minimum_width = 5,
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = false,
+    use_spacer = 'none',
+    show_graph_scale = false,
+    show_graph_range = false
+}
+
+conky.text = [[
+CPU $alignr$cpu%$alignr
+${cpubar 15}
+
+RAM $alignr$mem / $memmax$alignr
+${membar 15}
+
+
+DSK Ubuntu ${alignr}$fs_used / $fs_size$alignr
+${fs_bar 15}
+
+DSK Windows ${alignr}${fs_used /media/ciro/windows_c} / ${fs_size /media/ciro/windows_c}$alignr
+${fs_bar 15 /media/ciro/windows_c}
+
+DSK Storage ${alignr}${fs_used /media/ciro/storage} / ${fs_size /media/ciro/storage}$alignr
+${fs_bar 15 /media/ciro/storage}
+
+
+Name               PID    CPU%   MEM%
+ ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
+ ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
+ ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
+ ${top name 4} ${top pid 4} ${top cpu 4} ${top mem 4}
+
+Networking
+ wlp2s0   $alignr${upspeed wlp2s0} ${downspeed wlp2s0}   ${addr wlp2s0}$alignr
+ tun0     $alignr${upspeed tun0} ${downspeed tun0} ${addr tun0}$alignr
+
+Uptime
+ $uptime
+]]
